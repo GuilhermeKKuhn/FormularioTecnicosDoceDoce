@@ -3,39 +3,437 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário para WhatsApp</title>
+    <title>Check List de Demonstração</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #a91633;
+        color: white;
+      }
+      .container {
+        margin-top: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        color: #333;
+      }
+      .form-check-label {
+        margin-left: 10px;
+      }
+    </style>
   </head>
   <body>
-    <form id="whatsapp-form">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required /><br /><br />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required /><br /><br />
-
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" required></textarea><br /><br />
-
-      <button type="submit">Enviar via WhatsApp</button>
-    </form>
-
+    <div class="container">
+      <h2 class="text-center">Check List de Demonstração</h2>
+      <form id="checklist-form">
+        <div class="mb-3">
+          <label for="data-demonstracao" class="form-label"
+            >Data da Demonstração:</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="data-demonstracao"
+            name="Data da Demonstração"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nome-estabelecimento" class="form-label"
+            >Nome do Estabelecimento:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="nome-estabelecimento"
+            name="Nome do Estabelecimento"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="cidade-estado" class="form-label">Cidade / Estado:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cidade-estado"
+            name="Cidade / Estado"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="endereco" class="form-label">Endereço:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="endereco"
+            name="Endereço"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="quantas-lojas" class="form-label">Quantas Lojas?</label>
+          <input
+            type="number"
+            class="form-control"
+            id="quantas-lojas"
+            name="Quantas Lojas"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="responsavel-loja" class="form-label"
+            >Responsável da Loja ou Padaria:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="responsavel-loja"
+            name="Responsável da Loja ou Padaria"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="horario-deslocamento" class="form-label"
+            >Horário Deslocamento do Técnico:</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            id="horario-deslocamento"
+            name="Horário Deslocamento do Técnico"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="horario-entrada" class="form-label"
+            >Horário de Entrada do Técnico na Loja:</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            id="horario-entrada"
+            name="Horário de Entrada do Técnico na Loja"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="foco-demonstracao" class="form-label"
+            >Foco da Demonstração:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="foco-demonstracao"
+            name="Foco da Demonstração"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Cliente já trabalha com congelado?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="congelado-sim"
+              name="Cliente já trabalha com congelado?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="congelado-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="congelado-nao"
+              name="Cliente já trabalha com congelado?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="congelado-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="modelo-forno" class="form-label">Modelo de Forno:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="modelo-forno"
+            name="Modelo de Forno"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Climatica na Loja?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="climatica-sim"
+              name="Possui Climatica na Loja?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="climatica-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="climatica-nao"
+              name="Possui Climatica na Loja?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="climatica-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Assadeiras?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="assadeiras-sim"
+              name="Possui Assadeiras?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="assadeiras-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="assadeiras-nao"
+              name="Possui Assadeiras?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="assadeiras-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Mesa para o Trabalho?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="mesa-sim"
+              name="Possui Mesa para o Trabalho?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="mesa-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="mesa-nao"
+              name="Possui Mesa para o Trabalho?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="mesa-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Esteiras?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="esteiras-sim"
+              name="Possui Esteiras?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="esteiras-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="esteiras-nao"
+              name="Possui Esteiras?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="esteiras-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Fritadeira?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="fritadeira-sim"
+              name="Possui Fritadeira?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="fritadeira-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="fritadeira-nao"
+              name="Possui Fritadeira?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="fritadeira-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Possui Insumos (Creme de Confeiteiro)?</label
+          >
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="insumos-sim"
+              name="Possui Insumos (Creme de Confeiteiro)?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="insumos-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="insumos-nao"
+              name="Possui Insumos (Creme de Confeiteiro)?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="insumos-nao">Não</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="horario-ideal" class="form-label"
+            >Horário Ideal para Demonstração:</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            id="horario-ideal"
+            name="Horário Ideal para Demonstração"
+            required
+          />
+        </div>
+        <hr />
+        <h4 class="mt-4">
+          Quem Irá Participar Presencialmente da Demonstração
+        </h4>
+        <div class="mb-3">
+          <label for="nome-tecnico" class="form-label">Nome do Técnico:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome-tecnico"
+            name="Nome do Técnico"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nome-vendedor" class="form-label"
+            >Nome do Vendedor:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="nome-vendedor"
+            name="Nome do Vendedor"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nome-lider-tecnico" class="form-label"
+            >Nome do Líder Técnico:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="nome-lider-tecnico"
+            name="Nome do Líder Técnico"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nome-supervisor" class="form-label"
+            >Nome do Supervisor:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="nome-supervisor"
+            name="Nome do Supervisor"
+            required
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="sendToWhatsApp()"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
     <script>
-      document
-        .getElementById("whatsapp-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+      function sendToWhatsApp() {
+        const form = document.getElementById("checklist-form");
+        const data = new FormData(form);
 
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const message = document.getElementById("message").value;
+        let message = `*CHECK LIST DE DEMONSTRAÇÃO*\n\n`;
 
-          const whatsappMessage = `Nome: ${name}\nEmail: ${email}\nMensagem: ${message}`;
-          const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
-            whatsappMessage
-          )}`;
+        // Função para formatar a data no formato dia/mês/ano
+        function formatDate(dateString) {
+          const [year, month, day] = dateString.split("-");
+          return `${day}/${month}/${year}`;
+        }
 
-          window.open(whatsappUrl, "_blank");
+        // Adiciona campos ao texto da mensagem
+        data.forEach((value, key) => {
+          if (key === "Data da Demonstração") {
+            value = formatDate(value);
+          }
+          if (
+            key === "Nome do Técnico" ||
+            key === "Nome do Vendedor" ||
+            key === "Nome do Líder Técnico" ||
+            key === "Nome do Supervisor"
+          ) {
+            if (
+              !message.includes(
+                "Quem Irá Participar Presencialmente da Demonstração"
+              )
+            ) {
+              message += `\n*Quem Irá Participar Presencialmente da Demonstração*\n`;
+            }
+            message += `*${key}:* ${value}\n`;
+          } else {
+            message += `*${key}:* ${value}\n`;
+          }
         });
+
+        // Adiciona a observação ao final da mensagem
+        message += `\n*OBS:* ALINHAR UM DIA TRANQUILO PARA QUE NÃO ATRAPALHE A PRODUÇÃO DO CLIENTE.`;
+
+        const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+          message
+        )}`;
+        window.open(url, "_blank");
+      }
     </script>
   </body>
 </html>
