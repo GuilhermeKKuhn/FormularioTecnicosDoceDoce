@@ -23,6 +23,9 @@
       .form-check-label {
         margin-left: 10px;
       }
+      .hidden {
+       display: none;
+      }
     </style>
   </head>
   <body>
@@ -165,6 +168,56 @@
             name="Modelo de Forno"
             required
           />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Forno (5 ou 10 esteiras)?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="Forno (5 ou 10 esteiras)?5"
+              name="Forno (5 ou 10 esteiras)?"
+              value="5 Esteiras"
+              required
+            />
+            <label class="form-check-label" for="5-Esteiras">5 Esteiras</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="Forno (5 ou 10 esteiras)?10"
+              name="Forno (5 ou 10 esteiras)?"
+              value="10 Esteiras"
+              required
+            />
+            <label class="form-check-label" for="10-Esteiras">10 Esteiras</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Possui Assadeiras?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="assadeiras-sim"
+              name="Possui Assadeiras?"
+              value="Sim"
+              required
+            />
+            <label class="form-check-label" for="assadeiras-sim">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="assadeiras-nao"
+              name="Possui Assadeiras?"
+              value="Não"
+              required
+            />
+            <label class="form-check-label" for="assadeiras-nao">Não</label>
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Possui Climatica na Loja?</label>
@@ -319,6 +372,23 @@
           </div>
         </div>
         <div class="mb-3">
+          <label class="form-label">Mix Completo?</label>
+          <div>
+            <input type="radio" name="Mix Completo?" value="Sim" required> Sim
+            <input type="radio" name="Mix Completo?" value="Não" required> Não
+          </div>
+        </div>
+        <!-- Campo oculto para os produtos do mix -->
+        <div id="produtos-mix" class="mb-3 hidden">
+          <label for="produtos-mix-input" class="form-label">Quais Produtos do Mix?</label>
+          <input
+            type="text"
+            class="form-control"
+            id="produtos-mix-input"
+            name="Produtos do Mix"
+          />
+        </div>
+        <div class="mb-3">
           <label for="horario-ideal" class="form-label"
             >Horário Ideal para Demonstração:</label
           >
@@ -390,6 +460,22 @@
       </form>
     </div>
     <script>
+      document.querySelectorAll('input[name="Mix Completo?"]').forEach((elem) => {
+        elem.addEventListener("change", function () {
+          const produtosMix = document.getElementById("produtos-mix");
+          const produtosMixInput = document.getElementById("produtos-mix-input");
+
+          if (this.value === "Não") {
+            produtosMix.classList.remove("hidden"); // Exibe o campo se "Não" for selecionado
+            produtosMixInput.setAttribute("required", "true"); // Torna o campo obrigatório
+          } else {
+            produtosMix.classList.add("hidden"); // Oculta o campo se "Sim" for selecionado
+            produtosMixInput.removeAttribute("required"); // Remove a obrigatoriedade
+            produtosMixInput.value = ""; // Limpa o campo para garantir que não haja valores
+          }
+        });
+      });
+
       function sendToWhatsApp() {
         const form = document.getElementById("checklist-form");
         const data = new FormData(form);
@@ -400,6 +486,14 @@
         function formatDate(dateString) {
           const [year, month, day] = dateString.split("-");
           return `${day}/${month}/${year}`;
+        }
+
+        // Verifica se todos os campos obrigatórios estão preenchidos
+        for (const [key, value] of data.entries()) {
+          if (!value && form[key].hasAttribute("required")) {
+            alert(`Por favor, preencha o campo: ${key}`);
+            return;
+          }
         }
 
         // Adiciona campos ao texto da mensagem
@@ -414,9 +508,7 @@
             key === "Nome do Supervisor"
           ) {
             if (
-              !message.includes(
-                "Quem Irá Participar Presencialmente da Demonstração"
-              )
+              !message.includes("Quem Irá Participar Presencialmente da Demonstração")
             ) {
               message += `\n*Quem Irá Participar Presencialmente da Demonstração*\n`;
             }
@@ -429,11 +521,12 @@
         // Adiciona a observação ao final da mensagem
         message += `\n*OBS:* ALINHAR UM DIA TRANQUILO PARA QUE NÃO ATRAPALHE A PRODUÇÃO DO CLIENTE.`;
 
+        // Gera o link para enviar a mensagem no WhatsApp
         const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(
           message
         )}`;
         window.open(url, "_blank");
       }
-    </script>
+    </script>        
   </body>
 </html>
