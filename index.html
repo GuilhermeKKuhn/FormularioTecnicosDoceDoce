@@ -26,11 +26,42 @@
       .hidden {
        display: none;
       }
+      .instructions {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-left: 5px solid #a91633;
+        background-color: #f2f2f2;
+        color: #333;
+        border-radius: 5px;
+      }
+      .instructions h5 {
+        margin-bottom: 10px;
+        color: #a91633;
+      }
+      .instructions ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .instructions li {
+        margin-bottom: 8px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h2 class="text-center">Check List de Demonstração</h2>
+
+       <!-- Instruções de Uso -->
+       <div class="instructions">
+        <h5>Passos para Utilizar o Formulário:</h5>
+        <ol>
+          <li>Abra o formulário pelo link que foi disponibilizado.</li>
+          <li>Preencha todas as perguntas para enviar as respostas para o técnico.</li>
+          <li>Atente-se à pergunta sobre o mix de produtos. Se a resposta for "não", um campo para indicar quais produtos vão acompanhar o mix será aberto. Basta escrever quais produtos serão enviados com o mix.</li>
+          <li>Para enviar as respostas, clique no botão "Enviar" no fim do formulário. O WhatsApp abrirá automaticamente. Selecione o contato desejado e envie a mensagem.</li>
+        </ol>
+      </div>
+
       <form id="checklist-form">
         <div class="mb-3">
           <label for="data-demonstracao" class="form-label"
